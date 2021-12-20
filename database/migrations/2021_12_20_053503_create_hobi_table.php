@@ -16,7 +16,7 @@ class CreateHobiTable extends Migration
         Schema::create('hobi', function (Blueprint $table) {
             $table->id('id');
             $table->string('namaHobi');
-            $table->string('nim', 10);
+            $table->foreignId('nim', 10);
         });
     }
 

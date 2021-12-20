@@ -6,18 +6,22 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateUserDetailsTable extends Migration
 {
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
     public function up()
     {
         Schema::create('user_details', function (Blueprint $table) {
-            $table->string('nim', 10)->unique();
+            $table->foreignId('nim', 10)->unique();
             $table->string('nama');
             $table->string('tempatLahir');
-            $table->timestamp('tanggalLahir');
+            $table->date('tanggalLahir');
             $table->binary('gender');
-            $table->string('profilePhoto');
-            $table->string('email')->unique();
-            $table->binary('matched');
-            $table->string('matchedNim', 10);
+            $table->string('profilePhoto')->nullable();
+            $table->binary('matched')->default('False');
+            $table->foreignId('matchedNim', 10)->nullable();
         });
     }
 

@@ -3,7 +3,6 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use phpDocumentor\Reflection\Types\Nullable;
 
 class CreateDetailAlamatTable extends Migration
 {
@@ -20,7 +19,7 @@ class CreateDetailAlamatTable extends Migration
             $table->string('kecamatan')->nullable();
             $table->string('kota')->nullable();
             $table->string('provinsi')->nullable();
-            $table->string('nim', 10)->unique();
+            $table->foreignId('nim', 10)->unique();
         });
     }
 
