@@ -17,7 +17,7 @@ class CreateMatchedListTable extends Migration
             $table->id('id');
             $table->foreignId('nimUser', 10);
             $table->foreignId('nimMatched', 10);
-            $table->timestamps('time');
+            $table->timestamp('time');
         });
     }
 
