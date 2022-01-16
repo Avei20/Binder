@@ -2,10 +2,15 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class UserDetail extends Model
 {
+    use HasFactory;
+
+    public $timestamps = false;
+    protected $fillable = ['nim', 'nama', 'tempatLahir', 'tanggalLahir', 'gender', 'profilePhoto'];
 
     # Create reference to User Model
 
@@ -47,4 +52,6 @@ class UserDetail extends Model
     public function children(){
         return $this->hasOne('UserDetail', 'nim');
     }
+
+
 }

@@ -18,7 +18,7 @@ class CreateUserDetailsTable extends Migration
             $table->string('nama');
             $table->string('tempatLahir');
             $table->date('tanggalLahir');
-            $table->binary('gender');
+            $table->char('gender', 1);
             $table->string('profilePhoto')->nullable();
             $table->binary('matched')->default('False');
             $table->foreignId('matchedNim', 10)->nullable();

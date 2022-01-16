@@ -16,8 +16,10 @@ class User extends Authenticatable
     public $incrementing = false;
     protected $primaryKey = 'nim';
     protected $table = 'users';
+    public $timestamps = false;
 
     protected $fillable = [
+        'nim',
         'name',
         'email',
         'password',
