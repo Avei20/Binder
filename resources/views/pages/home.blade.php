@@ -17,8 +17,8 @@
                     @endphp
                     @foreach($users as $user)
                         @if ($skip == 0)
-                            <div class="carousel-item active">
                             {{$skip = 1;}}
+                            <div class="carousel-item active">
                         @else
                             <div class="carousel-item">
                         @endif
