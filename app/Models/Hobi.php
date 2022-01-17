@@ -15,6 +15,6 @@ class Hobi extends Model
     # Create reference to UserDetail Model
 
     public function detail(){
-        return $this->belongsTo('UserDetail', 'nim', 'nim');
+        return $this->belongsTo(UserDetail::class, 'nim', 'nim');
     }
 }

@@ -24,11 +24,9 @@ Route::get('/nav', function () {
 });
 
 
-Route::get('/', function () {
-    return view('pages.home');
-});
-
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/profileInfo', [App\Http\Controllers\ProfileController::class, 'index'])->name('profileinfo');
 
 Auth::routes();
 

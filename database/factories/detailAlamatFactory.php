@@ -17,8 +17,10 @@ class detailAlamatFactory extends Factory
         $nim_list = User::all()->pluck('nim')->toArray();
 
         return [
+            'nim' => $this->faker->unique()->randomElement($nim_list),
             'namaJalan' => $this->faker->streetName(),
-            'kecamatan' => $this->faker->streetAddress(),
+            'kecamatan' => $this->faker->streetAddress()
+
         ];
     }
 }

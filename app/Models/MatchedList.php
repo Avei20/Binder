@@ -8,8 +8,8 @@ class MatchedList extends Model
 {
 
     # Create reference to UserDetail Model
-
+    protected $table = 'matched_list';
     public function detail(){
-        return $this->belongsTo('UserDetail','nim','nimUser');
+        return $this->belongsTo(UserDetail::class,'nim','nimUser');
     }
 }

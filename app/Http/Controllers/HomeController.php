@@ -11,7 +11,7 @@ class HomeController extends Controller
 
     public function __construct()
     {
-        // $this->middleware('auth');
+        $this->middleware('auth');
     }
 
     public function index()
@@ -19,7 +19,6 @@ class HomeController extends Controller
         $users = User::where('nim', '!=', Auth::id())->with('detail')->get();
         $currentuser = User::where('nim', '=', Auth::id())->first();
         $curr = 0;
-        // dd($users[0]['detail']);
         return view('pages.home', compact('users', 'currentuser', 'curr'));
     }
 }
