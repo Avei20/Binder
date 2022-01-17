@@ -9,7 +9,7 @@
         </li>
     @else
         <li class="nav-item me-5">
-            <a class="nav-link text-white" href={{route('profileinfo')}}> Profile Info </a>
+            <a class="nav-link text-white" href={{route('profileinfo', ['nim' => Auth::id()])}}> Profile Info </a>
         </li>
         <form class="nav-item me-5" action="{{route('logout')}}" method="POST">
             @csrf

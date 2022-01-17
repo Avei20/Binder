@@ -9,7 +9,7 @@
     </head>
     <body class="bg-dark">
         <nav class="navbar navbar-expand-sm navbar-light bg-primary p-3">
-                <a class="navbar-brand font-weight-bold text-white" href="home">Binder</a>
+                <a class="navbar-brand font-weight-bold text-white" href={{route('home')}}>Binder</a>
                 <div class="collapse navbar-collapse justify-content-end">
                     <ul class="navbar-nav">
                         @yield('navigations')

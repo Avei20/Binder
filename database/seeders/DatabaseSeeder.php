@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\contact;
+use App\Models\detailAlamat;
 use App\Models\Hobi;
 use App\Models\User;
 use App\Models\UserDetail;
@@ -18,9 +20,10 @@ class DatabaseSeeder extends Seeder
     {
 
         for ($i = 0; $i < 15; $i++){
-            \App\Models\User::factory(1)->create();
-            \App\Models\UserDetail::factory(1)->create();
-            \App\Models\detailAlamat::factory(1)->create();
+            User::factory(1)->create();
+            UserDetail::factory(1)->create();
+            detailAlamat::factory(1)->create();
+            contact::factory(1)->create();
         }
         $records_to_delete = UserDetail::whereDoesntHave('alamat')->pluck('nim');
         foreach($records_to_delete as $record){
@@ -31,6 +34,6 @@ class DatabaseSeeder extends Seeder
             $userdetail->delete();
         }
 
-        \App\Models\Hobi::factory(15)->create();
+        Hobi::factory(15)->create();
     }
 }

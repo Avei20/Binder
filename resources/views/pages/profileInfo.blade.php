@@ -4,7 +4,7 @@
 
     {{-- Profile Info --}}
     <div class="row">
-        <div class="d-flex mt-3 justify-content-around text-black text-center mb-5 rounded bg-white">
+        <div class="d-flex mt-3 justify-content-around text-black text-center mb-5 rounded bg-white p-3">
 
             {{-- Profile Image --}}
             <div class="col w-25 bg-transparent">
@@ -26,7 +26,7 @@
                     @csrf
                     <div class = 'row'>
                         <div class = 'col'>
-                            Name
+                            Nama
                         </div>
                         <div class = 'col-6'>
                             {{$userdetail['nama']}}
@@ -76,7 +76,7 @@
 
     {{-- List Hobi --}}
     <div class="row">
-        <div class="d-flex mt-3 justify-content-around text-black text-center mb-5 rounded bg-white">
+        <div class="d-flex mt-3 justify-content-around text-black text-center mb-5 rounded bg-white p-3">
             <div class="col w-50 bg-transparent">
                 <hr>
                 <div class = 'row'>
@@ -105,7 +105,7 @@
     </div>
 
     {{-- Modal Tambah Hobi --}}
-    <form class="modal" tabindex="-1"  id="addHobi" action=# method="get">
+    <form class="modal" tabindex="-1"  id="addHobi" action={{route("profileinfo.tambahHobi")}} method="post">
         @csrf
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -128,7 +128,7 @@
 
     {{-- List Alamat --}}
     <div class="row">
-        <div class="d-flex mt-3 justify-content-around text-black text-center mb-5 rounded bg-white">
+        <div class="d-flex mt-3 justify-content-around text-black text-center mb-5 rounded bg-white p-3">
             <div class="col w-50 bg-transparent">
                 <hr>
                 <div class = 'row'>
@@ -151,11 +151,188 @@
                         Kecamatan
                     </div>
                     <div class = 'col'>
-                        {{$useralamat['Kecamatan']}}
+                        {{$useralamat['kecamatan']}}
                     </div>
                 </div>
                 <hr>
+                <div class = 'row'>
+                    <div class = 'col'>
+                        Kota
+                    </div>
+                    <div class = 'col'>
+                        {{$useralamat['kota']}}
+                    </div>
+                </div>
+                <hr>
+                <div class = 'row'>
+                    <div class = 'col'>
+                        Provinsi
+                    </div>
+                    <div class = 'col'>
+                        {{$useralamat['provinsi']}}
+                    </div>
+                </div>
+                <hr>
+                @if ($nimQuery == Auth::id())
+                    <div class = 'row align-items-center justify-content-center'>
+                        <button type="button" class="col-sm-3 text-center btn btn-primary" data-bs-toggle="modal" data-bs-target="#updateAlamat" href="#">
+                            Update Alamat
+                        </button>
+                    </div>
+                @endif
             </div>
         </div>
     </div>
+
+
+    <form class="modal" tabindex="-1"  id="updateAlamat" action={{route("profileinfo.updateAlamat")}} method="post">
+        @csrf
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header justify-content-center text-black">
+                    <h4> Update Alamat </h4>
+                </div>
+
+                <div class="modal-body text-black">
+                    <p class = "form-floating text-black">
+                        <input type="text" class = "form-control text-black" name="namaJalan">
+                        <label for="namaJalan">Nama Jalan</label>
+                    </p>
+                    <p class = "form-floating text-black">
+                        <input type="text" class = "form-control text-black" name="kecamatan">
+                        <label for="kecamatan">Kecamatan</label>
+                    </p>
+                    <p class = "form-floating text-black">
+                        <input type="text" class = "form-control text-black" name="kota">
+                        <label for="kota">Kota</label>
+                    </p>
+                    <p class = "form-floating text-black">
+                        <input type="text" class = "form-control text-black" name="provinsi">
+                        <label for="provinsi">Provinsi</label>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <p><input type="submit" class = "bg-secondary text-white" value="Update Alamat"></p>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    {{-- List Contact --}}
+    <div class="row">
+        <div class="d-flex mt-3 justify-content-around text-black text-center mb-5 rounded bg-white p-3">
+            <div class="col w-50 bg-transparent">
+                <hr>
+                <div class = 'row'>
+                    <h1>
+                        List Contact
+                    </h1>
+                </div>
+                <hr>
+                <div class = 'row'>
+                    <div class = 'col'>
+                        Line
+                    </div>
+                    <div class = 'col'>
+                        {{$usercontact['line']}}
+                    </div>
+                </div>
+                <hr>
+                <div class = 'row'>
+                    <div class = 'col'>
+                        Instagram
+                    </div>
+                    <div class = 'col'>
+                        {{$usercontact['instagram']}}
+                    </div>
+                </div>
+                <hr>
+                <div class = 'row'>
+                    <div class = 'col'>
+                        Whatsapp
+                    </div>
+                    <div class = 'col'>
+                        {{$usercontact['whatsapp']}}
+                    </div>
+                </div>
+                <hr>
+                <div class = 'row'>
+                    <div class = 'col'>
+                        Facebook
+                    </div>
+                    <div class = 'col'>
+                        {{$usercontact['facebook']}}
+                    </div>
+                </div>
+                <hr>
+                <div class = 'row'>
+                    <div class = 'col'>
+                        Twitter
+                    </div>
+                    <div class = 'col'>
+                        {{$usercontact['twitter']}}
+                    </div>
+                </div>
+                <hr>
+                <div class = 'row'>
+                    <div class = 'col'>
+                        Snapchat
+                    </div>
+                    <div class = 'col'>
+                        {{$usercontact['snapchat']}}
+                    </div>
+                </div>
+                <hr>
+                @if ($nimQuery == Auth::id())
+                    <div class = 'row align-items-center justify-content-center'>
+                        <button type="button" class="col-sm-3 text-center btn btn-primary" data-bs-toggle="modal" data-bs-target="#updateContact" href="#">
+                            Update Contact
+                        </button>
+                    </div>
+                @endif
+            </div>
+        </div>
+    </div>
+
+    <form class="modal" tabindex="-1"  id="updateContact" action={{route("profileinfo.updateContact")}} method="post">
+        @csrf
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header justify-content-center text-black">
+                    <h4> Update Contact </h4>
+                </div>
+
+                <div class="modal-body text-black">
+                    <p class = "form-floating text-black">
+                        <input type="text" class = "form-control text-black" name="line">
+                        <label for="line">Line</label>
+                    </p>
+                    <p class = "form-floating text-black">
+                        <input type="text" class = "form-control text-black" name="instagram">
+                        <label for="instagram">Instagram</label>
+                    </p>
+                    <p class = "form-floating text-black">
+                        <input type="text" class = "form-control text-black" name="whatsapp">
+                        <label for="whatsapp">Whatsapp</label>
+                    </p>
+                    <p class = "form-floating text-black">
+                        <input type="text" class = "form-control text-black" name="facebook">
+                        <label for="facebook">Facebook</label>
+                    </p>
+                    <p class = "form-floating text-black">
+                        <input type="text" class = "form-control text-black" name="twitter">
+                        <label for="twitter">Twitter</label>
+                    </p>
+                    <p class = "form-floating text-black">
+                        <input type="text" class = "form-control text-black" name="snapchat">
+                        <label for="snapchat">Snapchat</label>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <p><input type="submit" class = "bg-secondary text-white" value="Update Contact"></p>
+                </div>
+            </div>
+        </div>
+    </form>
+
 @endsection

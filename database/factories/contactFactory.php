@@ -7,7 +7,7 @@ use App\Models\User;
 use App\Models\UserDetail;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class detailAlamatFactory extends Factory
+class contactFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,12 +18,10 @@ class detailAlamatFactory extends Factory
     {
 
         // $generated_nim_list = detailAlamat::whereDoesntHave('')->pluck('nim');
-        $nim_list = UserDetail::whereDoesntHave('alamat')->pluck('nim');
+        $nim_list = UserDetail::whereDoesntHave('contact')->pluck('nim');
         $nim = $this->faker->randomElement($nim_list);
         return [
-            'nim'=>$nim,
-            'namaJalan'=>$this->faker->streetName(),
-            'kecamatan'=>$this->faker->streetAddress()
+            'nim'=>$nim
         ];
     }
 }

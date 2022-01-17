@@ -26,8 +26,9 @@ Route::get('/nav', function () {
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/profileInfo', [App\Http\Controllers\ProfileController::class, 'index'])->name('profileinfo');
+Route::get('/profileInfo/{nim}', [App\Http\Controllers\ProfileController::class, 'index'])->name('profileinfo');
 Route::post('/profileInfo/tambahHobi', [App\Http\Controllers\HobiController::class, 'create'])->name('profileinfo.tambahHobi');
-
+Route::post('/profileInfo/updateAlamat', [App\Http\Controllers\detailAlamatController::class, 'update'])->name('profileinfo.updateAlamat');
+Route::post('/profileInfo/updateContact', [App\Http\Controllers\ContactController::class, 'update'])->name('profileinfo.updateContact');
 Auth::routes();
 

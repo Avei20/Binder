@@ -4,22 +4,21 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Hobi;
-use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class HobiController extends Controller
 {
     public function create(Request $req) {
-        $nim = Auth::user()->nim;
-
-        $data = $req->Validate([
+        $req->validate([
             'namaHobi' => 'required|string|min:5'
         ]);
 
-        $data['nim'] = $nim;
+        $newHobi = new Hobi();
+        $newHobi->nim = Auth::user()->nim;;
+        $newHobi->namaHobi = $req->namaHobi;
 
-        Hobi::create($data);
+        $newHobi->save();
 
         return redirect()->back()->with('hobiSuccess', 'Hobi berhasil di input');
     }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\contact;
 use App\Models\detailAlamat;
 use App\Models\Hobi;
 use App\Models\MatchedList;
@@ -18,16 +19,15 @@ class ProfileController extends Controller
         $this->middleware('auth');
     }
 
-    public function index()
+    public function index(Request $req)
     {
-
-        $currentuser = User::where('nim', '=', Auth::id())->first();
-        $userdetail = UserDetail::where('nim', '=', Auth::id())->with('alamat', 'contact')->first();
-        $usermatcheds = MatchedList::where('nimUser', '=', Auth::id())->get();
-        $userhobis = Hobi::where('nim', '=', Auth::id())->get();
-        $useralamat = detailAlamat::where('nim', '=', Auth::id())->first();
-
-        $curr = 0;
-        return view('pages.profileInfo', compact('currentuser', 'curr', 'userdetail', 'usermatcheds', 'userhobis', 'useralamat'));
+        $currentuser = User::where('nim', '=', $req->nim)->first();
+        $userdetail = UserDetail::where('nim', '=', $req->nim)->with('alamat', 'contact')->first();
+        $usermatcheds = MatchedList::where('nimUser', '=', $req->nim)->get();
+        $userhobis = Hobi::where('nim', '=', $req->nim)->get();
+        $usercontact = contact::where('nim', '=', $req->nim)->first();
+        $useralamat = detailAlamat::where('nim', '=', $req->nim)->first();
+        $nimQuery = $req->nim; // Get Requested NIM, which will be used to compare against the Authenticated user's NIM
+        return view('pages.profileInfo', compact('currentuser', 'userdetail', 'usermatcheds', 'userhobis', 'useralamat', 'nimQuery', 'usercontact'));
     }
 }
