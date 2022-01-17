@@ -31,6 +31,6 @@ class User extends Authenticatable
     ];
 
     public function detail(){
-        return $this->hasOne('UserDetail', 'nim', 'nim');
+        return $this->hasOne(UserDetail::class, 'nim', 'nim');
     }
 }

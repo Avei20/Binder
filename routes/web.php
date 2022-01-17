@@ -15,10 +15,20 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/layout', function () {
+    return view('layout.layout');
 });
+
+Route::get('/nav', function () {
+    return view('layout.nav');
+});
+
+
+Route::get('/', function () {
+    return view('pages.home');
+});
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
