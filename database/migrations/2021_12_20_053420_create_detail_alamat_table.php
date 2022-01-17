@@ -14,12 +14,12 @@ class CreateDetailAlamatTable extends Migration
     public function up()
     {
         Schema::create('detail_alamat', function (Blueprint $table) {
+            $table->foreignId('nim', 10)->unique();
             $table->id('id');
             $table->string('namaJalan')->nullable();
             $table->string('kecamatan')->nullable();
             $table->string('kota')->nullable();
             $table->string('provinsi')->nullable();
-            $table->foreignId('nim', 10)->unique();
         });
     }
 

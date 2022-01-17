@@ -2,7 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\detailAlamat;
 use App\Models\User;
+use App\Models\UserDetail;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class detailAlamatFactory extends Factory
@@ -14,13 +16,14 @@ class detailAlamatFactory extends Factory
      */
     public function definition()
     {
-        $nim_list = User::all()->pluck('nim')->toArray();
 
+        // $generated_nim_list = detailAlamat::whereDoesntHave('')->pluck('nim');
+        $nim_list = UserDetail::whereDoesntHave('alamat')->pluck('nim');
+        $uni = $this->faker->randomElement($nim_list);
         return [
-            'nim' => $this->faker->unique()->randomElement($nim_list),
-            'namaJalan' => $this->faker->streetName(),
-            'kecamatan' => $this->faker->streetAddress()
-
+            'nim'=>$uni,
+            'namaJalan'=>$this->faker->streetName(),
+            'kecamatan'=>$this->faker->streetAddress()
         ];
     }
 }

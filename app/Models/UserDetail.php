@@ -10,6 +10,7 @@ class UserDetail extends Model
     use HasFactory;
 
     public $timestamps = false;
+    protected $primaryKey = 'nim';
     protected $fillable = ['nim', 'nama', 'tempatLahir', 'tanggalLahir', 'gender', 'profilePhoto'];
 
     # Create reference to User Model
