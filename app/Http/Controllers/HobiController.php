@@ -21,13 +21,13 @@ class HobiController extends Controller
 
         Hobi::create($data);
 
-        return redirect()->back()->with('success', 'Hobi berhasil di input');
+        return redirect()->back()->with('hobiSuccess', 'Hobi berhasil di input');
     }
 
     public function delete($id){
         $hobi = Hobi::find($id);
         $hobi->destroy($id);
-        return redirect()->back()->with('success', 'Hobi telah berhasil dihapus');
+        return redirect()->back()->with('hobiSuccess', 'Hobi telah berhasil dihapus');
     }
 
 }

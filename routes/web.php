@@ -27,6 +27,7 @@ Route::get('/nav', function () {
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/profileInfo', [App\Http\Controllers\ProfileController::class, 'index'])->name('profileinfo');
+Route::post('/profileInfo/tambahHobi', [App\Http\Controllers\HobiController::class, 'create'])->name('profileinfo.tambahHobi');
 
 Auth::routes();
 
