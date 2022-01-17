@@ -22,7 +22,7 @@ class UserDetailFactory extends Factory
             'tempatLahir'=> $this->faker->city(),
             'tanggalLahir'=> $this->faker->date('Y-m-d'),
             'gender' => $this->faker->randomElement($gender),
-            'profilePhoto' => $this->faker->image(public_path('profile'), 640, 480, null, false)
+            'profilePhoto' => $this->faker->image(public_path('profile'), 400, 400, null, false)
         ];
     }
 }

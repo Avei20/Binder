@@ -18,8 +18,8 @@ class DatabaseSeeder extends Seeder
     {
 
         for ($i = 0; $i < 15; $i++){
-            \App\Models\User::factory(3)->create();
-            \App\Models\UserDetail::factory(3)->create();
+            \App\Models\User::factory(1)->create();
+            \App\Models\UserDetail::factory(1)->create();
             \App\Models\detailAlamat::factory(1)->create();
         }
         $records_to_delete = UserDetail::whereDoesntHave('alamat')->pluck('nim');

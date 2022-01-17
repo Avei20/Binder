@@ -24,10 +24,8 @@ class ProfileController extends Controller
         $userdetail = UserDetail::where('nim', '=', Auth::id())->with('alamat', 'contact')->first();
         $usermatcheds = MatchedList::where('nimUser', '=', Auth::id())->get();
         $userhobis = Hobi::where('nim', '=', Auth::id())->get();
-        dd($userdetail);
 
         $curr = 0;
-        // dd($users[0]['detail']);
-        return view('pages.home', compact('users', 'currentuser', 'curr'));
+        return view('pages.profileInfo', compact('currentuser', 'curr', 'userdetail', 'usermatcheds', 'userhobis'));
     }
 }

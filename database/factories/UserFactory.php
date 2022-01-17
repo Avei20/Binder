@@ -14,7 +14,6 @@ class UserFactory extends Factory
      */
     public function definition()
     {
-        // $nim = '230' . strval(random_int(1111111, 9999999)) ;
         $nim = $this->faker->unique()->numerify('230#######');
         return [
             'nim' => $nim,
