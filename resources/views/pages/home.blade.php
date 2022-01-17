@@ -22,7 +22,9 @@
                         @else
                             <div class="carousel-item">
                         @endif
-                                <img src = "{{asset("profile/".$user['detail']['profilePhoto'])}}" class = "d-block w-100" alt="profile">
+                                <a href = {{route('profileinfo',['nim' => $user['nim']])}}>
+                                    <img src = "{{asset("profile/".$user['detail']['profilePhoto'])}}" class = "d-block w-100" alt="profile">
+                                </a>
                                 <div class="carousel-caption">
                                     <h4> {{$user['name']}} </h6>
                                     <p> {{$user['detail']['gender']}}, {{$user['detail']['tanggalLahir']}} </p>
@@ -40,6 +42,29 @@
         </div>
     </div>
 
+    <div class="row">
+        <div class="d-flex mt-3 justify-content-around text-black text-center mb-5 rounded bg-white p-3">
+            <div class="col w-50 bg-transparent">
+                <hr>
+                <div class = 'row'>
+                    <h1>
+                        List Match
+                    </h1>
+                </div>
+                <hr>
+                @foreach($requestedmatch as $match)
+                    <form class = 'row align-items-center justify-content-center' action = {{route('home.matchaccept')}} method='post'>
+                        @csrf
+                        <input type='hidden' name='id' value = {{$match['id']}}>
+                        <input type='hidden' name='nimUser' value = {{$match['nimUser']}}>
+                        <button type="submit" class="col-sm-3 text-center btn btn-primary">
+                            {{$match['nimUser']}}
+                        </button>
+                    </form>
+                @endforeach
+            </div>
+        </div>
+    </div>
 
 @endsection
 

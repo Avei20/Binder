@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\MatchedList;
 use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
@@ -18,7 +18,7 @@ class HomeController extends Controller
     {
         $users = User::where('nim', '!=', Auth::id())->with('detail')->get();
         $currentuser = User::where('nim', '=', Auth::id())->first();
-        $curr = 0;
-        return view('pages.home', compact('users', 'currentuser', 'curr'));
+        $requestedmatch = MatchedList::where('nimUser', '=', Auth::id())->get();
+        return view('pages.home', compact('users', 'currentuser', 'requestedmatch'));
     }
 }

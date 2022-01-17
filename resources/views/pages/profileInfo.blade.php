@@ -70,7 +70,7 @@
                     </div>
                 </form>
                 <hr>
-                @if(!$nimQuery != Auth::id())
+                @if((!$nimQuery == Auth::id()) && (!$userdetail['matched'] == 'True'))
                     <form class = 'row align-items-center justify-content-center' action={{route("profileinfo.match")}} method='post'>
                         @csrf
                         <input type='hidden' name='nimMatched' value={{$userdetail['nim']}}>
@@ -78,6 +78,17 @@
                             Send Match Request
                         </button>
                     </form>
+                @elseif($userdetail['matched'] == 'True')
+                    <div class = 'row text-center'>
+                        <div class = 'col'>
+                            Matched NIM
+                        </div>
+                        <div class = 'col-6'>
+                            <a class = 'btn btn-primary' href={{route('profileinfo', ['nim' => $userdetail['matchedNim']])}}>
+                                {{$userdetail['matchedNim']}}
+                            </a>
+                        </div>
+                    </div>
                 @endif
             </div>
         </div>
@@ -129,7 +140,7 @@
                     </p>
                 </div>
                 <div class="modal-footer">
-                    <p><input type="submit" class = "bg-secondary text-white" value="Tambah Hobi"></p>
+                    <p><input type="submit" class = "bg-secondary text-white btn" value="Tambah Hobi"></p>
                 </div>
             </div>
         </div>
@@ -193,7 +204,7 @@
         </div>
     </div>
 
-
+    {{-- Modal Update Alamat --}}
     <form class="modal" tabindex="-1"  id="updateAlamat" action={{route("profileinfo.updateAlamat")}} method="post">
         @csrf
         <div class="modal-dialog modal-dialog-centered">
@@ -221,7 +232,7 @@
                     </p>
                 </div>
                 <div class="modal-footer">
-                    <p><input type="submit" class = "bg-secondary text-white" value="Update Alamat"></p>
+                    <p><input type="submit" class = "bg-secondary text-white btn" value="Update Alamat"></p>
                 </div>
             </div>
         </div>
@@ -303,6 +314,7 @@
         </div>
     </div>
 
+    {{-- Modal Update Contact --}}
     <form class="modal" tabindex="-1"  id="updateContact" action={{route("profileinfo.updateContact")}} method="post">
         @csrf
         <div class="modal-dialog modal-dialog-centered">
@@ -338,7 +350,7 @@
                     </p>
                 </div>
                 <div class="modal-footer">
-                    <p><input type="submit" class = "bg-secondary text-white" value="Update Contact"></p>
+                    <p><input type="submit" class = "bg-secondary text-white btn" value="Update Contact"></p>
                 </div>
             </div>
         </div>
