@@ -70,7 +70,11 @@
                     </div>
                 </form>
                 <hr>
-                @if((!$nimQuery == Auth::id()) && (!$userdetail['matched'] == 'True'))
+                {{-- Cek kalau nim sama dengan yang diquery, cek kalau yang di query dah ada match, dan cek kalau user dah ada match --}}
+                {{-- {{dd($userdetail['matched'])}} --}}
+
+
+                @if(!($nimQuery == Auth::id()) && ($userdetail['matched'] == "False") && ($authuser['matched'] == "False"))
                     <form class = 'row align-items-center justify-content-center' action={{route("profileinfo.match")}} method='post'>
                         @csrf
                         <input type='hidden' name='nimMatched' value={{$userdetail['nim']}}>
@@ -78,7 +82,7 @@
                             Send Match Request
                         </button>
                     </form>
-                @elseif($userdetail['matched'] == 'True')
+                @elseif($userdetail['matched'] == "True")
                     <div class = 'row text-center'>
                         <div class = 'col'>
                             Matched NIM

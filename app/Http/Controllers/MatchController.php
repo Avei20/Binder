@@ -28,16 +28,16 @@ class MatchController extends Controller
     public function accept(Request $req) {
         $req->validate([
             'id' => 'required|exists:matched_list,id',
-            'nimUser' => 'required|min:10|max:10|exists:users,nim',
+            'nimMatched' => 'required|min:10|max:10|exists:users,nim',
         ]);
 
         $user = UserDetail::find(Auth::id());
-        $matcheduser = UserDetail::find($req->nimUser);
+        $matcheduser = UserDetail::find($req->nimMatched);
 
         $user->matched = 'True';
         $matcheduser->matched = 'True';
 
-        $user->matchedNim = $req->nimUser;
+        $user->matchedNim = $req->nimMatched;
         $matcheduser->matchedNim = Auth::id();
 
         $user->save();

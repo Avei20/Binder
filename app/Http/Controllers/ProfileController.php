@@ -9,6 +9,7 @@ use App\Models\MatchedList;
 use App\Models\User;
 use App\Models\UserDetail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
@@ -27,6 +28,7 @@ class ProfileController extends Controller
         $usercontact = contact::where('nim', '=', $req->nim)->first();
         $useralamat = detailAlamat::where('nim', '=', $req->nim)->first();
         $nimQuery = $req->nim; // Get Requested NIM, which will be used to compare against the Authenticated user's NIM
-        return view('pages.profileInfo', compact('currentuser', 'userdetail', 'usermatcheds', 'userhobis', 'useralamat', 'nimQuery', 'usercontact'));
+        $authuser = UserDetail::find(Auth::id());
+        return view('pages.profileInfo', compact('currentuser', 'userdetail', 'usermatcheds', 'userhobis', 'useralamat', 'nimQuery', 'usercontact', 'authuser'));
     }
 }

@@ -56,9 +56,9 @@
                     <form class = 'row align-items-center justify-content-center' action = {{route('home.matchaccept')}} method='post'>
                         @csrf
                         <input type='hidden' name='id' value = {{$match['id']}}>
-                        <input type='hidden' name='nimUser' value = {{$match['nimUser']}}>
+                        <input type='hidden' name='nimMatched' value = {{$match['nimMatched']}}>
                         <button type="submit" class="col-sm-3 text-center btn btn-primary">
-                            {{$match['nimUser']}}
+                            {{$match['nimMatched']}}
                         </button>
                     </form>
                 @endforeach
