@@ -30,5 +30,6 @@ Route::get('/profileInfo/{nim}', [App\Http\Controllers\ProfileController::class,
 Route::post('/profileInfo/tambahHobi', [App\Http\Controllers\HobiController::class, 'create'])->name('profileinfo.tambahHobi');
 Route::post('/profileInfo/updateAlamat', [App\Http\Controllers\detailAlamatController::class, 'update'])->name('profileinfo.updateAlamat');
 Route::post('/profileInfo/updateContact', [App\Http\Controllers\ContactController::class, 'update'])->name('profileinfo.updateContact');
+Route::post('/profileInfo/match', [App\Http\Controllers\MatchController::class, 'create'])->name('profileinfo.match');
 Auth::routes();
 

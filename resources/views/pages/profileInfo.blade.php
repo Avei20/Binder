@@ -68,8 +68,17 @@
                             {{$userdetail['gender']}}
                         </div>
                     </div>
-                    <hr>
                 </form>
+                <hr>
+                @if(!$nimQuery != Auth::id())
+                    <form class = 'row align-items-center justify-content-center' action={{route("profileinfo.match")}} method='post'>
+                        @csrf
+                        <input type='hidden' name='nimMatched' value={{$userdetail['nim']}}>
+                        <button type="submit" class="col-sm-3 text-center btn btn-primary">
+                            Send Match Request
+                        </button>
+                    </form>
+                @endif
             </div>
         </div>
     </div>

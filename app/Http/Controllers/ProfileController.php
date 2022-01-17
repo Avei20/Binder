@@ -9,7 +9,6 @@ use App\Models\MatchedList;
 use App\Models\User;
 use App\Models\UserDetail;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
