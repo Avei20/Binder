@@ -15,7 +15,7 @@ class UserDetailFactory extends Factory
     public function definition()
     {
         $nim_list = User::all()->pluck('nim')->toArray();
-        $gender = array('m', 'f');
+        $gender = array('M', 'F');
         return [
             'nim' =>$this->faker->unique()->randomElement($nim_list),
             'nama' =>$this->faker->name(),

@@ -1,6 +1,13 @@
 @extends('layout.nav')
 
 @section('content')
+{{-- @if ($errors->any())
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                @endif --}}
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -8,8 +15,22 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="/daftar">
                         @csrf
+
+                        <div class="row mb-3">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nomor Induk Mahasiswa') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="name" type="text" class="form-control @error('nim') is-invalid @enderror" name="nim" value="{{ old('nim') }}" required autocomplete="nim" autofocus>
+
+                                @error('nim')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
 
                         <div class="row mb-3">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
