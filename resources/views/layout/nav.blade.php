@@ -2,7 +2,7 @@
 @section('navigations')
     @guest
         <li class="nav-item me-5">
-            <a class="nav-link text-white" href={{route('register')}}> Register </a>
+            <a class="nav-link text-white" href=/daftar> Register </a>
         </li>
         <li class="nav-item me-5">
             <a class="nav-link text-white" href={{route('login')}}> Login </a>

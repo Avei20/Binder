@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -32,5 +33,8 @@ Route::post('/profileInfo/updateAlamat', [App\Http\Controllers\detailAlamatContr
 Route::post('/profileInfo/updateContact', [App\Http\Controllers\ContactController::class, 'update'])->name('profileinfo.updateContact');
 Route::post('/profileInfo/match', [App\Http\Controllers\MatchController::class, 'create'])->name('profileinfo.match');
 Route::post('/home/matchaccept', [App\Http\Controllers\MatchController::class, 'accept'])->name('home.matchaccept');
+Route::post('/daftar', [UserController::class, 'create']);
+Route::get('/daftar', [UserController::class, 'viewRegister']);
 Auth::routes();
+
 

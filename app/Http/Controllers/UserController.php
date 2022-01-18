@@ -11,17 +11,21 @@ class UserController extends Controller
 {
     public function create(Request $req){
         $data = $req->validate([
-            'nim' => 'required|size:10|numeric',
+            'nim' => 'required|string|size:10',
             'name' => 'required|string',
             'email' => 'required|email',
             'password' =>  'required|min:8',
-            'confimPassword' => 'required|same:password'
+            'password_confirmation' => 'required|same:password'
         ]);
 
-        $data['password'] = Hash::Create($req->password);
+        $data['password'] = Hash::make($req->password);
 
         $user = User::create($data);
 
         return redirect()->route('login');
+    }
+
+    public function viewRegister() {
+        return view('auth.register');
     }
 }
