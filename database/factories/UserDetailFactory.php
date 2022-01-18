@@ -18,7 +18,6 @@ class UserDetailFactory extends Factory
         $gender = array('M', 'F');
         return [
             'nim' =>$this->faker->unique()->randomElement($nim_list),
-            'nama' =>$this->faker->name(),
             'tempatLahir'=> $this->faker->city(),
             'tanggalLahir'=> $this->faker->date('Y-m-d'),
             'gender' => $this->faker->randomElement($gender),

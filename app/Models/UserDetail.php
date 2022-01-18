@@ -11,7 +11,7 @@ class UserDetail extends Model
 
     public $timestamps = false;
     protected $primaryKey = 'nim';
-    protected $fillable = ['nim', 'nama', 'tempatLahir', 'tanggalLahir', 'gender', 'profilePhoto'];
+    protected $fillable = ['nim', 'tempatLahir', 'tanggalLahir', 'gender', 'profilePhoto'];
 
     # Create reference to User Model
 

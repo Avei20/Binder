@@ -29,7 +29,7 @@
                             Nama
                         </div>
                         <div class = 'col-6'>
-                            {{$userdetail['nama']}}
+                            {{$currentuser['name']}}
                         </div>
                     </div>
                     <hr>

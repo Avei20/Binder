@@ -15,7 +15,6 @@ class CreateUserDetailsTable extends Migration
     {
         Schema::create('user_details', function (Blueprint $table) {
             $table->foreignId('nim', 10)->unique();
-            $table->string('nama');
             $table->string('tempatLahir');
             $table->date('tanggalLahir');
             $table->char('gender', 1);
