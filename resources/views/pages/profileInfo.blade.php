@@ -219,19 +219,19 @@
 
                 <div class="modal-body text-black">
                     <p class = "form-floating text-black">
-                        <input type="text" class = "form-control text-black" name="namaJalan">
+                        <input type="text" class = "form-control text-black" name="namaJalan" value="{{$useralamat['namaJalan']}}">
                         <label for="namaJalan">Nama Jalan</label>
                     </p>
                     <p class = "form-floating text-black">
-                        <input type="text" class = "form-control text-black" name="kecamatan">
+                        <input type="text" class = "form-control text-black" name="kecamatan" value="{{$useralamat['kecamatan']}}">
                         <label for="kecamatan">Kecamatan</label>
                     </p>
                     <p class = "form-floating text-black">
-                        <input type="text" class = "form-control text-black" name="kota">
+                        <input type="text" class = "form-control text-black" name="kota" value="{{$useralamat['kota']}}">
                         <label for="kota">Kota</label>
                     </p>
                     <p class = "form-floating text-black">
-                        <input type="text" class = "form-control text-black" name="provinsi">
+                        <input type="text" class = "form-control text-black" name="provinsi" value="{{$useralamat['provinsi']}}">
                         <label for="provinsi">Provinsi</label>
                     </p>
                 </div>
@@ -329,27 +329,27 @@
 
                 <div class="modal-body text-black">
                     <p class = "form-floating text-black">
-                        <input type="text" class = "form-control text-black" name="line">
+                        <input type="text" class = "form-control text-black" name="line" value = "{{$usercontact['line']}}">
                         <label for="line">Line</label>
                     </p>
                     <p class = "form-floating text-black">
-                        <input type="text" class = "form-control text-black" name="instagram">
+                        <input type="text" class = "form-control text-black" name="instagram" value = "{{$usercontact['instagram']}}">
                         <label for="instagram">Instagram</label>
                     </p>
                     <p class = "form-floating text-black">
-                        <input type="text" class = "form-control text-black" name="whatsapp">
+                        <input type="text" class = "form-control text-black" name="whatsapp" value = "{{$usercontact['whatsapp']}}">
                         <label for="whatsapp">Whatsapp</label>
                     </p>
                     <p class = "form-floating text-black">
-                        <input type="text" class = "form-control text-black" name="facebook">
+                        <input type="text" class = "form-control text-black" name="facebook" value = "{{$usercontact['facebook']}}">
                         <label for="facebook">Facebook</label>
                     </p>
                     <p class = "form-floating text-black">
-                        <input type="text" class = "form-control text-black" name="twitter">
+                        <input type="text" class = "form-control text-black" name="twitter" value = "{{$usercontact['twitter']}}">
                         <label for="twitter">Twitter</label>
                     </p>
                     <p class = "form-floating text-black">
-                        <input type="text" class = "form-control text-black" name="snapchat">
+                        <input type="text" class = "form-control text-black" name="snapchat" value = "{{$usercontact['snapchat']}}">
                         <label for="snapchat">Snapchat</label>
                     </p>
                 </div>
